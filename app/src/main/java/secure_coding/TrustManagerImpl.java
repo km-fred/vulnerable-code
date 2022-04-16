@@ -28,41 +28,43 @@ public class TrustManagerImpl implements X509TrustManager {
     public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
         // BAD: Does not verify the certificate chain, allowing any certificate.
 
-        if (trustManagers.isEmpty()) {
-            throw new CertificateException("No trust managers installed!");
-        }
+        // if (trustManagers.isEmpty()) {
+        //     throw new CertificateException("No trust managers installed!");
+        // }
 
-        CertificateException ce = null;
-        for (X509TrustManager trustManager : trustManagers) {
-            try {
-                trustManager.checkServerTrusted(chain, authType);
-                return;
-            }
-            catch (CertificateException trustCe) {
-                ce = trustCe;
-            }
-        }
+        // CertificateException ce = null;
+        // for (X509TrustManager trustManager : trustManagers) {
+        //     try {
+        //         trustManager.checkServerTrusted(chain, authType);
+        //         return;
+        //     }
+        //     catch (CertificateException trustCe) {
+        //         ce = trustCe;
+        //     }
+        // }
 
-        throw ce;
+        // throw ce;
+        System.out.println("Is vulnerable? 1");
     }
 
     @Override
     public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
-        if (trustManagers.isEmpty()) {
-            throw new CertificateException("No trust managers installed!");
-        }
+        // if (trustManagers.isEmpty()) {
+        //     throw new CertificateException("No trust managers installed!");
+        // }
 
-        CertificateException ce = null;
-        for (X509TrustManager trustManager : trustManagers) {
-            try {
-                trustManager.checkClientTrusted(chain, authType);
-                return;
-            }
-            catch (CertificateException trustCe) {
-                ce = trustCe;
-            }
-        }
+        // CertificateException ce = null;
+        // for (X509TrustManager trustManager : trustManagers) {
+        //     try {
+        //         trustManager.checkClientTrusted(chain, authType);
+        //         return;
+        //     }
+        //     catch (CertificateException trustCe) {
+        //         ce = trustCe;
+        //     }
+        // }
 
-        throw ce;
+        // throw ce;
+        System.out.println("Is vulnerable? 2");
     }
 }
